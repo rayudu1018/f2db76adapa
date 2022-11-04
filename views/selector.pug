@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title 
+  - let food_img_names = ["Andhra tiffins.jpg","chinese food.jpg","Street-foods-in-Andhra-Pradesh.jpg","maharastrian food.jpg","Vada_Pav_Main.jpg"]
+  - for(let i=0;i<3;i++){
+      - let img = Math.floor(Math.random()*5);
+      - let item = food_img_names[img];
+      img(src=`/images/${item}` alt=`${item}` style='height:300px; width:300px')
+  - }

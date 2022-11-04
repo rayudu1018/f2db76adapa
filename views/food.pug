@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+  - var results = [{"foodtype":"Andhra food","foodquality":"Excellent","foodcost":"200$"},{"foodtype":"Maharastra food","foodquality":"Avearge","foodcost":"400$"},{"foodtype":"chinese food","foodquality":"Good","foodcost":"600$"}];
+
+  div(class="container-fluid")
+    div(class="row")
+    each item in results
+      div(class="col-sm-2") Food type:#{item.foodtype}, Food quality:#{item.foodquality}, Food Cost:#{item.foodcost}
+
+  br
+  h5= 'price of purchase'
+
+
+
+  div(class="container-fluid")
+
+    each food,index in results
+
+      div(class="row", onclick=`buy(${index})`)
+
+        div(class="col-sm-2") <br>food #{index}: #{food.foodtype} quality:#{food.foodquality} Cost:#{food.foodCost}
+
+  script.
+
+        function buy(price){
+
+          alert('You purchased item ' + price)
+
+        } 
