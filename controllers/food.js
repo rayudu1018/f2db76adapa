@@ -60,3 +60,15 @@ exports.food_delete = function(req, res) {
 exports.food_update_put = function(req, res) { 
     res.send('NOT IMPLEMENTED: Food update PUT' + req.params.id); 
 };
+
+// for a specific food.
+exports.food_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await food.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+    };
