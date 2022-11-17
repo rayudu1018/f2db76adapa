@@ -74,13 +74,13 @@ async function recreateDB(){
   let instance2 = new food({foodtype:"Maharastra food",  foodquality:'Good', foodcost:150}); 
   instance2.save( function(err,doc) { 
       if(err) return console.error(err); 
-      console.log("First object saved") 
+      console.log("Second object saved") 
   }); 
 
   let instance3 = new food({foodtype:"Tamil food",  foodquality:'Average', foodcost:120}); 
   instance3.save( function(err,doc) { 
       if(err) return console.error(err); 
-      console.log("First object saved") 
+      console.log("Third object saved") 
   }); 
 } 
  
