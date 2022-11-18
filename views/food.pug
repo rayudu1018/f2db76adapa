@@ -5,14 +5,14 @@ block content
   - let items = results
 
   div(class="container-fluid")
-    div(class="row")
-    each item in items
+    div(class="row m-1")
+    each item in results 
+      - let destination = `dispatch(\"/food/update?id=${item._id}\")`
       div(class="col-sm-2") Food type:#{item.foodtype}, Food quality:#{item.foodquality}, Food Cost:#{item.foodcost}
+        button.btn( class="btn-primary ml-1", onclick= destination) Update
 
   br
   h5= 'price of purchase'
-
-
 
   div(class="container-fluid")
 
@@ -23,9 +23,9 @@ block content
         div(class="col-sm-2") <br>food #{index}: #{food.foodtype} quality:#{food.foodquality} Cost:#{food.foodcost}
 
   script.
-
         function buy(price){
-
           alert('You purchased item ' + price)
-
         } 
+        function dispatch(path){
+          window.location.href=path
+        }
